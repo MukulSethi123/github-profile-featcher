@@ -1,0 +1,18 @@
+.form-body{
+    margin: 1rem;
+    margin-bottom: 3rem;
+}
+.form-input,.form-button{
+    text-align: center;
+    padding: 1rem 5rem;
+    font-size: medium;
+    border-radius: 5px;
+    border-style: solid;
+}
+.form-button{
+    padding: 1.1rem 5rem;
+    background-color: #F10086;
+    color: white;
+    font-size: medium;
+    margin-left: 1rem;
+}
