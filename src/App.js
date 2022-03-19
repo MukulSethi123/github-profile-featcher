@@ -14,6 +14,7 @@ class App extends React.Component{
   constructor(props){
     super(props)
     this.state = { 
+
       emptyPageImageSrc: 'https://media4.giphy.com/media/epCEsdiZm1bnVRdayM/giphy.gif?cid=ecf05e475u74bq02lhfsrvwpggaq64mq20usvwmocg2p70v7&rid=giphy.gif&ct=g'
     }
     this.handleOnClick = this.handleOnClick.bind(this);
@@ -27,7 +28,7 @@ class App extends React.Component{
     event.preventDefault();   
     if(userID){
       //go through exsisting profiles if the userId already exists
-      const temp = this.state.profiles.find(user => user.login===userID)
+      const temp = store.state.profiles.find(user => user.login===userID)
       if(temp){
         console.log("profile exisits")
       }
