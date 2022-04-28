@@ -1,27 +1,16 @@
-
-
-function stateReducer(state  = { profiles:[],userID:""},action ){
-
-  function fetchProfileData(userID){
-    fetch(`https://api.github.com/users/${userID}`)
-      .then(res => res.json())
-      .then(data => {
-        if(data.name){
-        //the new profile is added to the list using the spread operator 
-        return this.setState({
-          profiles: [...this.state.profiles,data],
-        })
-        }
-        else throw "profile doesnt exsist";
-      })
-      .catch(err => {console.log(err)})
-  }
-  
-    switch(action.type){
-        case 'state/addProfile':
-            return fetchProfileData(state.userID)
-        default: return state;
+function stateReducer(state = { profiles: [] }, action) {
+  switch (action.type) {
+    case "state/addProfile": {
+      console.log("stateReducer.js", action.data);
+      const newState = { profiles: [...state.profiles, action.data] };
+      return newState;
     }
+    // return {profiles: [...state.profiles,state.data]}
+    // return state.profiles.concat(action.data)
+
+    default:
+      return state;
+  }
 }
 
 export default stateReducer;
