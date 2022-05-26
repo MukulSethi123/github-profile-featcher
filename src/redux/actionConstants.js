@@ -1,0 +1,2 @@
+export const REMOVE_PROFILE = "REMOVE_PROFILE";
+export const ADD_PROFILE = "ADD_PROFILE";
