@@ -19,7 +19,7 @@ function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1> GitHub Profiles </h1>
+        <h1> GitHub Profiles With Saga </h1>
       </header>
       <Form handleOnClick={handleOnClick} />
       {console.log(profiles)}
