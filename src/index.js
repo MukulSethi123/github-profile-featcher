@@ -6,25 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import configureStore from "./redux/configureStore";
 import { initialState } from "./redux/initialState";
-// import { configureStore } from "@reduxjs/toolkit";
 
 import { rootReducer } from "./redux/rootReducer";
 import thunk from "redux-thunk";
+import rootSaga, { watchFetchProfileById } from "./redux/sagas";
 
-// const store = configureStore({
-//   reducer: rootReducer,
-//   middleware: (getDefaultMiddleware) =>
-//     getDefaultMiddleware({
-//       thunk,
-//     }),
-//   devTools: process.env.NODE_ENV !== "production",
-//   initialState,
-// });
 const store = configureStore(initialState);
+store.runSaga(rootSaga);
+const action = (type) => store.dispatch({ type });
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <App action={action} />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
